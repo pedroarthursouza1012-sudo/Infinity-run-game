@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MovieFlix</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>🎬 MovieFlix</h1>
+
+      <p>Cadastro de Filmes</p>
+    </header>
+
+    <main class="container">
+      <!-- ============================= -->
+      <!-- Formulário                    -->
+      <!-- ============================= -->
+
+      <section class="formulario">
+        <h2>Novo Filme</h2>
+
+        <form id="formFilme">
+          <div class="campo">
+            <label for="titulo">Título</label>
+
+            <input
+              type="text"
+              id="titulo"
+              placeholder="Digite o título do filme"
+              required
+            />
+          </div>
+
+          <div class="campo">
+            <label for="ano">Ano</label>
+
+            <input
+              type="number"
+              id="ano"
+              min="1900"
+              max="2100"
+              placeholder="2025"
+              required
+            />
+          </div>
+
+          <div class="campo">
+            <label for="genero">Gênero</label>
+
+            <select id="genero">
+              <option value="">Selecione</option>
+
+              <option>Ação</option>
+
+              <option>Aventura</option>
+
+              <option>Comédia</option>
+
+              <option>Drama</option>
+
+              <option>Ficção Científica</option>
+
+              <option>Fantasia</option>
+
+              <option>Romance</option>
+
+              <option>Suspense</option>
+
+              <option>Terror</option>
+
+              <option>Documentário</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="nota">Nota</label>
+
+            <input
+              type="number"
+              id="nota"
+              min="0"
+              max="10"
+              step="0.1"
+              placeholder="0 - 10"
+            />
+          </div>
+
+          <div class="campo checkbox">
+            <input type="checkbox" id="assistido" />
+
+            <label for="assistido"> Já assisti </label>
+          </div>
+
+          <button type="submit" id="btnCadastrar">Cadastrar Filme</button>
+        </form>
+      </section>
+
+      <!-- ============================= -->
+      <!-- Painel                        -->
+      <!-- ============================= -->
+
+      <section class="painel">
+        <div class="topo-lista">
+          <h2>Filmes Cadastrados</h2>
+
+          <span id="contador"> Total: 0 </span>
+        </div>
+
+        <div id="listaFilmes" class="lista-filmes"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

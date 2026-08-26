@@ -1,0 +1,130 @@
+*{
+
+padding: 0;
+margin: 0;
+
+}
+
+body{
+
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: url(img/646653.jpg);
+
+}
+
+h1{
+
+
+text-align: center;
+padding: 1rem;
+border: 1px solid black;
+width: min(90%,300px);
+margin: auto;
+margin-top: 1rem;
+border-radius: 25px;
+box-shadow: 0 5px 5px rgba(0, 0, 0, 0.214),
+inset -2px -2px 3px rgba(0, 0, 0, 0.318),
+inset 2px 2px 3px white;
+background-color: #fafafa61;
+backdrop-filter: blur(5px);
+color: white;
+font-weight: 300;
+font-family: "Lexend", sans-serif;
+}
+
+.tela {
+    border: 1px solid black;
+    height: 45rem;
+    margin-top: 5rem;
+    overflow: hidden;
+    position: relative;
+
+    background-color: #87ceeb;
+
+    background-repeat: no-repeat;
+    display: flex;
+    
+}
+
+.nuvem,
+.nuvem2,
+.nuvem3,
+.nuvem4,
+.nuvem5,
+.nuvem6{
+
+    background-color: rgba(255, 255, 255, 0.614);
+    border-radius: 25px;
+    position: absolute;
+}
+
+.nuvem {
+    top: 50px;
+    left: 100px;
+    width: 100px;
+    height: 50px;
+}
+
+.nuvem2 {
+    top: 120px;
+    left: 300px;
+    width: 50px;
+    height: 25px;
+}
+
+.nuvem3 {
+    top: 80px;
+    left: 600px;
+    width: 100px;
+    height: 40px;
+}
+
+.nuvem4 {
+    top: 180px;
+    left: 800px;
+    width:100px;
+    height: 50px;
+}
+
+.nuvem5 {
+    top: 40px;
+    left: 1000px;
+    width: 100px;
+    height: 50px;
+}
+
+.nuvem6{
+
+    top: 100px;
+    left: 1300px;
+    width: 100px;
+    height: 50px;
+
+}
+
+.floor{
+
+background-color: #44250c;
+    height: 15%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.grass{
+    height: 40%;
+    width: 100%;
+    border: 1px solid;
+
+    position: absolute;
+
+    background: repeating-linear-gradient(
+        90deg,
+        #0c4416 0px,
+        #134822 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    background-color: #26761d;
+
+}

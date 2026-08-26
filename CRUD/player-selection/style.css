@@ -1,0 +1,157 @@
+*{
+
+margin: 0;
+padding: 0;
+
+}
+
+
+
+body{
+    font-family: "Quicksand", sans-serif;
+    overflow-X: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+    background: linear-gradient(to top, rgb(4, 4, 19),rgb(16, 28, 66));
+}
+
+html, body {
+    min-height: 100%;
+}
+
+h1{
+
+    text-align: center;
+    margin: 1rem;
+    color: white;
+    background:rgba(255, 255, 255, 0.355);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.356),
+    inset -2px -2px 2px rgba(0, 0, 0, 0.361);
+    padding: 1rem;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 50px;
+}
+
+.painel{
+
+    border: 1px solid;
+    height: 25rem;
+    width: 50rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 15px;
+    background: linear-gradient(to top, rgb(0, 0, 0),rgba(162, 169, 176, 0.635));
+
+}
+
+.player-1{
+
+    border:none;
+    height: 20rem;
+    width: 15rem;
+    border-radius: 25px;
+    background:rgba(255, 255, 255, 0.203);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.226);
+    transition: .4s;
+}
+.player-2{
+
+    border:none;
+    height: 20rem;
+    width: 15rem;
+    border-radius: 25px;
+    background:rgba(255, 255, 255, 0.203);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.226);
+    transition: .4s;
+
+}
+.player-3{
+
+    border:none;
+    height: 20rem;
+    width: 15rem;
+    border-radius: 25px;
+    background:rgba(255, 255, 255, 0.203);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.226);
+    transition: .4s;
+
+}
+
+.on{
+
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(221, 202, 255, 0.27);
+}
+
+.off{
+
+    transform: scale(.7);
+    opacity: .4;
+    
+}
+
+.painel-btn{
+
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    background:rgba(255, 255, 255, 0.355);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.095);
+    cursor: pointer;
+    transition: .4s;
+    color: white;
+    font-weight: 800;
+}
+
+
+.select{
+
+    margin:1rem;
+    display: flex;
+    padding: 1rem;
+    border-radius: 15px;
+    border:none;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background:rgba(255, 255, 255, 0.355);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.356),
+    inset -2px -2px 2px rgba(0, 0, 0, 0.361);
+    cursor: pointer;
+    transition: .4s;
+    color: white;
+}
+
+.select:active{
+
+transform: scale(.95);
+text-shadow: 0 0 5px;
+}
+
+.select-box{
+
+    display: flex;
+    justify-content: center;
+
+}

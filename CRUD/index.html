@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+
+    <title>NovaDex</title>
+</head>
+<body>
+    
+<header>
+    <h1>NovaDex</h1>
+    <p>Pesquise, avalie e colecione Pokémons</p>
+    <a href="player-selection/index.html">Infinity run</a>
+</header>
+<main>
+<div class="box">
+
+
+    <form>   
+        <div class="topForm">
+        <h2>Novo pokemon</h2>
+        <img src="img/960px-Poké_Ball_icon.svg.webp" class="pokeball">
+        </div>
+        <div class="campo">
+            <label for="name">Nome</label>
+            <input type="text" id="name" 
+            placeholder="Digite o nome do pokemon"
+            list="pokemonList"
+            required>
+            <datalist id="pokemonList"></datalist>
+        </div>
+
+        <div class="campo">
+                <label for="nota">Nota</label>
+                <input type="number" id="nota" placeholder="0-10"
+                min="0" max="10" required>
+        </div>
+
+        <div class="campoFav">
+            <label for="favorito">Favorito</label>
+            <input type="checkbox" id="favorito">
+        </div>
+
+        <button id="pokAddBtn" type="button">Adicionar Pokemon</button>
+
+
+    </form>
+</div>
+
+<section class="painel">
+    <div class="topoLista"><h2>Pokemons adicionados</h2>
+    <div class="contador"><p>Total: 0</p></div></div>
+
+    <div class="listaPokemon">
+     
+    </div>
+
+</section>
+
+
+
+</main>
+<script src="script.js" defer></script>
+</body>
+</html>

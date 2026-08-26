@@ -1,0 +1,379 @@
+*{
+
+margin: 0;
+padding: 0;
+
+}
+
+
+
+body{
+  font-family: "Quicksand", sans-serif;     overflow-X: hidden;
+     background: url(img/c0c4e7b0-8b70-4f61-82e0-64f220610027.jpg);
+      background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+}
+
+  html, body {
+    min-height: 100%;
+  }
+
+header h1,p{
+
+ font-family: "Elms Sans", sans-serif;    padding: .5rem;
+    width: min(90%,500px);
+    margin: 0 auto;
+    border-radius: 10px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.413);
+}
+
+h1{
+
+    text-decoration: underline;
+
+}
+
+header{
+
+display: flex;
+flex-direction: column;
+padding: 1rem;
+
+background: rgba(255, 255, 255, 0.22);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+text-align: center;
+margin-bottom: 3rem;
+color: white;
+}
+
+header a{
+
+color: white;
+text-decoration: none;
+border: 1px solid rgba(255, 255, 255, 0.404);
+padding: 1rem;
+width:min(90%,150px);
+border-radius: 25px;
+text-align: center;
+margin: auto;
+background-color: #ffffff10;
+box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.277),
+inset 2px 2px 3px rgba(255, 255, 255, 0.35);
+backdrop-filter: blur(5px);
+transition: .4s;
+}
+
+header a:hover{
+
+transform: scale(.95);
+text-shadow: 0 0 4px white;
+}
+
+form{
+
+padding: 1rem;
+border: 1px solid black;
+width: min(90%,350px);
+
+margin: auto;
+height: 25rem;
+
+overflow: hidden;
+box-shadow: 10px 15px 0 black;
+align-items: center;
+justify-content: center;
+margin-bottom: 5rem;
+background: rgba(255, 255, 255, 0.22);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(255, 255, 255, 0.32);
+
+
+}
+.topForm{
+
+display: flex;
+position: relative;
+}
+
+.pokeball{
+
+width: 75px;
+position: absolute;
+right: 0;
+z-index: 1;
+}
+
+form h2{
+
+font-size: 2rem;
+border: 1px solid;
+padding: 1rem;
+border-radius: 10px;
+margin-bottom: 1rem;
+
+background: rgba(255, 255, 255, 0.22);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+form label{
+
+font-size: 1.5rem;
+border: 1px solid;
+border-radius: 5px;
+padding: .3rem;
+background: rgba(255, 255, 255, 0.22);
+border-radius: 10px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(255, 255, 255, 0.32);
+z-index: 2;
+
+}
+
+form input:not([type=checkbox]){
+
+margin-bottom: 1rem;
+border: 1px solid;
+border-radius: 5px;
+padding: .3rem;
+width: 300px;
+z-index: 3;
+background: rgba(255, 255, 255, 0.22);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(255, 255, 255, 0.32);
+margin-top: 1rem;
+}
+
+.campoFav{
+
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    margin-bottom: 1rem;
+
+}
+
+input[type=checkbox]{
+appearance: none;
+    width: 30px;
+    height: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 2px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+    background: white;
+transition: .4s;
+
+background: rgba(255, 255, 255, 0.22);
+border-radius: 16px;
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(255, 255, 255, 0.32);
+
+}
+input[type=checkbox]:checked{
+
+background: #ff0000ab;
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(255, 255, 255, 0.32);
+box-shadow: 0 0 10px rgb(255, 0, 0);
+}
+
+button{
+
+width: 100%;
+padding: .8rem;
+border-radius: 10px;
+  font-family: "Quicksand", sans-serif;font-size: 1.5rem;
+margin-top: 1rem;
+cursor: pointer;
+color: white;
+transition: .3s ease-in-out;
+
+background: rgba(255, 255, 255, 0.22);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(255, 255, 255, 0.32);
+
+
+}
+
+
+button:active{
+
+transform: translateY(2px);
+box-shadow: inset 0 0 2px black;
+
+}
+
+::placeholder{
+    color: #000000ab;
+  font-family: "Quicksand", sans-serif;
+}
+
+input{
+
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+}
+
+.painel{
+
+margin: 2rem;
+padding: 1rem;
+border: 1px solid;
+border-radius: 10px;
+border: 1px solid rgba(255, 255, 255, 0.59);
+background: rgba(255, 255, 255, 0.52);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(11.6px);
+-webkit-backdrop-filter: blur(11.6px);
+border: 1px solid rgba(255, 255, 255, 0.59);
+
+
+}
+
+.painel img{
+
+width: 90%;
+height: 200px;
+border: 1px solid;
+border-radius: 10px;
+object-fit: contain;
+align-self: center;
+background-color: white;
+box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.252);
+}
+
+.card{
+
+border: 1px solid;
+display: flex;
+overflow: hidden;
+padding: 1rem;
+border-radius: 10px;
+width: min(90%,500px);
+flex-direction: column;
+gap: 1rem;
+letter-spacing: 2px;
+min-height: 420px;
+background: rgba(255, 255, 255, 0.22);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+.card p{
+
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.3rem;
+
+}
+
+
+
+.listaPokemon{
+
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 1.5rem;
+
+}
+
+.card >*{
+
+border: 1px solid;
+padding: .5rem;
+border-radius: 10px;
+background: rgba(255, 255, 255, 0.44);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.5px);
+-webkit-backdrop-filter: blur(12.5px);
+border: 1px solid rgba(255, 255, 255, 0.58);
+
+}
+
+.card button:nth-child(1){
+
+
+color: rgb(0, 0, 0);
+border:1px solid black;
+width: 50%;
+
+background: rgba(255, 41, 41, 0.643);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(255, 46, 46, 0.637);
+}
+
+.card button:nth-child(2){
+
+    color: rgb(0, 0, 0);
+border:1px solid black;
+width: 50%;
+background: rgba(70, 255, 41, 0.643);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.9px);
+-webkit-backdrop-filter: blur(7.9px);
+border: 1px solid rgba(46, 255, 53, 0.637);
+}
+
+.topoLista{
+
+    border: 1px solid;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 300px;
+    margin-bottom: 1rem;
+    background: rgba(61, 61, 61, 0.655);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.5px);
+-webkit-backdrop-filter: blur(7.5px);
+border: 1px solid rgba(154, 154, 154, 0.58);
+color: white;
+}
+
+.buttons{
+
+display: flex;
+background: none;
+border: none;
+gap: 1.5rem;
+}
+
+input:focus-visible{
+
+outline: 2px solid rgba(255, 53, 53, 0.302);
+  border-radius: 1px;
+
+}
