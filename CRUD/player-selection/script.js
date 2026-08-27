@@ -31,6 +31,7 @@ rightButton.addEventListener("click", () => {
 
 play.addEventListener("click",()=>{
 
+localStorage.setItem("playerSelecionado", current);
 window.open('../../Infinity run/index.html','width=800,height=600');   
 
 })

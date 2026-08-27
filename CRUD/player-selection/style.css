@@ -65,6 +65,8 @@ h1{
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
     inset 2px 2px 2px rgba(255, 255, 255, 0.226);
     transition: .4s;
+    align-items: center;
+    display: flex;
 }
 .player-2{
 
@@ -77,6 +79,8 @@ h1{
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
     inset 2px 2px 2px rgba(255, 255, 255, 0.226);
     transition: .4s;
+    align-items: center;
+    display: flex;
 
 }
 .player-3{
@@ -90,7 +94,18 @@ h1{
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
     inset 2px 2px 2px rgba(255, 255, 255, 0.226);
     transition: .4s;
+    align-items: center;
+    display: flex;
 
+}
+
+.player-1 img,.player-2 img,.player-3 img{
+
+    align-self: center;
+    margin: auto;
+    width: 150px;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.475))
+    drop-shadow(0 -2px 8px rgba(253, 253, 253, 0.581));
 }
 
 .on{

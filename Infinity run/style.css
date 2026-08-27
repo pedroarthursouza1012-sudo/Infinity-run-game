@@ -128,3 +128,21 @@ background-color: #44250c;
     background-color: #26761d;
 
 }
+
+.personagem{
+
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    bottom: 15%;
+    left: 100px;
+    width: 80px;
+    z-index: 2;
+}
+
+.personagem img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
