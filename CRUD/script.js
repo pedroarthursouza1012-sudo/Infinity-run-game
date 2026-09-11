@@ -313,6 +313,12 @@ addBtn.addEventListener("click",async ()=>{
 
         };
 
+        if (nota.value >10 || nota.value <0 || nota.value == String){
+            alert("Adicione uma nota valida!")
+            nota.value =""
+            return
+        }
+
 
         const card = criarCard(pokemon);
 

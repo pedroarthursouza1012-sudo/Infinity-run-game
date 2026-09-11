@@ -74,7 +74,7 @@ h1{
     font-weight: 700;
     background:rgba(255, 0, 0, 0.822);
     backdrop-filter: blur(5px);
-    box-shadow: 0 6px 0px rgba(0, 0, 0, 1),
+    box-shadow: 0 6px 0px rgb(61, 0, 0),
     inset 2px 2px 2px rgba(255, 255, 255, 0.356),
     inset -2px -2px 2px rgba(0, 0, 0, 0.361);
     cursor: pointer;
@@ -162,4 +162,11 @@ transition: .3s ease;
     box-shadow: 0 0 10px rgba(247, 231, 231, 0.767),
     inset 1px 3px 3px rgba(255, 255, 255, 0.466),
     inset -1px -3px 3px rgba(0, 0, 0, 0.555);
+    
+}
+
+.card-pokemon.selecionado p{
+
+    background-color: rgba(0, 255, 191, 0.74);
+
 }
