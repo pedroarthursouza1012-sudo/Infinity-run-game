@@ -1,14 +1,19 @@
-const player_selecionado = Number(localStorage.getItem("playerSelecionado"))
+const back = document.getElementById("back")
 
 const player = document.getElementById("player")
+const pokemonEscolhido = JSON.parse(localStorage.getItem("pokemonEscolhido"))
 
-const personagens = [
+if (!pokemonEscolhido) {
+  alert("Nenhum Pokémon selecionado!")
+  history.back()
+} else {
+  player.src = pokemonEscolhido.sprite
+}
 
-"../sprites/Character 1/sprite10.png",
-"../sprites/Character 2/sprite10.png",
-"../sprites/Character 3/sprite10.png"
+back.addEventListener("click", () => {
 
-]
+  history.back();
+})
 
-player.src = personagens[player_selecionado]
+player_selecionado.src = pokemonEscolhido.sprite
 

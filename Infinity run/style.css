@@ -135,7 +135,7 @@ background-color: #44250c;
     width: fit-content;
     height: fit-content;
     position: absolute;
-    bottom: 15%;
+    bottom: 9%;
     left: 100px;
     width: 80px;
     z-index: 2;
@@ -143,6 +143,33 @@ background-color: #44250c;
 
 .personagem img {
     display: block;
-    width: 100%;
-    height: auto;
+    width: 150px;
+    height: 150px;
+}
+
+#back{
+
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 15px;
+    border:none;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background:rgba(255, 255, 255, 0.355);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.241),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.356),
+    inset -2px -2px 2px rgba(0, 0, 0, 0.361);
+    cursor: pointer;
+    color: white;
+    transition: .3s;
+}
+
+#back:active{
+
+    transform: scale(.95);
+    text-shadow: 0 0 5px;
 }
