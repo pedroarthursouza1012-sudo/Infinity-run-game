@@ -2,7 +2,8 @@ const play = document.getElementById("jogar")
 const back = document.getElementById("back")
 const painel = document.querySelector(".painel")
 let pokemonSelecionado = null
-const pokemonsIds = [151,4,7,25,650,725,731]
+const pokemonsIds = [151,4,7,25,650,725,731,105,
+  133,143,156,214,197,258]
 
 async function buscarPokemon(ids){
 

@@ -2,6 +2,7 @@
 
 margin: 0;
 padding: 0;
+box-sizing: border-box;
 
 }
 
@@ -9,7 +10,7 @@ padding: 0;
 
 body{
     font-family: "Quicksand", sans-serif;
-    overflow-X: hidden;
+    overflow-x: hidden;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -42,21 +43,23 @@ h1{
 .painel{
 
     border: none;
-    height: 25rem;
+    min-height: 25rem;
+    height: auto;
     width: 85%;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    justify-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.247),
     inset 2px 2px 4px rgba(255, 255, 255, 0.116),
     inset -2px -2px 4px rgba(0, 0, 0, 0.466);
     margin: 0 auto;
     align-items: center;
     gap: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     backdrop-filter: blur(12px);
     background: linear-gradient(to top, rgb(190, 190, 190,0.1),
     rgba(255, 255, 255, 0.1));
-    display: flex;
     overflow-x: hidden;
 }
 
@@ -169,4 +172,53 @@ transition: .3s ease;
 
     background-color: rgba(0, 255, 191, 0.74);
 
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+   ========================================== */
+
+@media (max-width: 768px) {
+    .painel {
+        width: 92%;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #back {
+        position: static;
+        order: 2;
+        margin: 0.75rem auto 0;
+    }
+
+    h1 {
+        order: 1;
+        font-size: 1.1rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .painel {
+        order: 3;
+        width: 92%;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .select-box {
+        order: 4;
+    }
+
+    .card-pokemon img {
+        height: 90px;
+    }
 }

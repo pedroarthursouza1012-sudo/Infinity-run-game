@@ -2,13 +2,22 @@
 
 padding: 0;
 margin: 0;
+box-sizing: border-box;
 
+}
+
+html, body{
+    overflow-x: hidden;
 }
 
 body{
 
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 background: url(img/646653.jpg);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+min-height: 100vh;
 
 }
 
@@ -34,12 +43,13 @@ font-family: "Lexend", sans-serif;
 
 .tela {
     border: 1px solid black;
+    width: 100%;
     height: 45rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
     overflow: hidden;
     position: relative;
 
-    background-color: #87ceeb;
+    background: linear-gradient(to top,#00d9ff,#00c3ff);
 
     background-repeat: no-repeat;
     display: flex;
@@ -80,8 +90,8 @@ font-family: "Lexend", sans-serif;
 
 /* NUVEM 1 */
 .nuvem {
-    top: 50px;
-    left: 100px;
+    top: 6.9%;
+    left: 7.1%;
     width: 110px;
 }
 
@@ -102,8 +112,8 @@ font-family: "Lexend", sans-serif;
 
 /* NUVEM 2 */
 .nuvem2 {
-    top: 120px;
-    left: 300px;
+    top: 16.7%;
+    left: 21.4%;
     width: 65px;
     height: 25px;
 }
@@ -125,8 +135,8 @@ font-family: "Lexend", sans-serif;
 
 /* NUVEM 3 */
 .nuvem3 {
-    top: 80px;
-    left: 600px;
+    top: 11.1%;
+    left: 42.9%;
     width: 120px;
 }
 
@@ -147,8 +157,8 @@ font-family: "Lexend", sans-serif;
 
 /* NUVEM 4 */
 .nuvem4 {
-    top: 180px;
-    left: 800px;
+    top: 25%;
+    left: 57.1%;
     width: 110px;
 }
 
@@ -169,8 +179,8 @@ font-family: "Lexend", sans-serif;
 
 /* NUVEM 5 */
 .nuvem5 {
-    top: 40px;
-    left: 1000px;
+    top: 5.6%;
+    left: 71.4%;
     width: 115px;
 }
 
@@ -191,8 +201,8 @@ font-family: "Lexend", sans-serif;
 
 /* NUVEM 6 */
 .nuvem6 {
-    top: 100px;
-    left: 1300px;
+    top: 13.9%;
+    left: 92.9%;
     width: 110px;
 }
 
@@ -280,7 +290,7 @@ font-family: "Lexend", sans-serif;
     width: 100%;
     height: 35%;
 
-    background: linear-gradient(to top,#484b49,#dfe9e3);
+    background: linear-gradient(to top,#484b49,#d7e9ff);
 
     clip-path: polygon(
         0% 100%,
@@ -315,9 +325,9 @@ font-family: "Lexend", sans-serif;
     height: fit-content;
     position: absolute;
     bottom: 9%;
-    left: 100px;
+    left: 7.1%;
     width: 80px;
-    z-index: 2;
+    z-index: 4;
 }
 
 .personagem img {
@@ -325,6 +335,7 @@ font-family: "Lexend", sans-serif;
     width: 150px;
     height: 150px;
     transform: scaleX(-1);
+    transform-origin: bottom center;
     filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.2));
 
 }
@@ -335,6 +346,7 @@ font-family: "Lexend", sans-serif;
     position: absolute;
     top: 1rem;
     left: 1rem;
+    z-index: 20;
     padding: .5rem 1rem;
     border-radius: 15px;
     border:none;
@@ -357,6 +369,30 @@ font-family: "Lexend", sans-serif;
     text-shadow: 0 0 5px;
 }
 
+@media (max-width: 480px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #back {
+        position: static;
+        order: 2;
+        margin: 0.75rem auto 0;
+        width: fit-content;
+    }
+
+    h1 {
+        order: 1;
+        margin: 1rem auto 0;
+    }
+
+    .tela {
+        order: 3;
+    }
+}
+
 .tree{
 
     display: flex;
@@ -364,7 +400,7 @@ font-family: "Lexend", sans-serif;
     height: fit-content;
     position: absolute;
     bottom: 15%;
-    left: 600px;
+    left: 42.9%;
     z-index: 2;
     
 }
@@ -375,6 +411,135 @@ font-family: "Lexend", sans-serif;
     width: 50px;
     height: 50px;
     transform: scaleX(-1);
+    transform-origin: bottom center;
     filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.2));
     
+}
+
+#contadorBox{
+
+    font-size: 1rem;
+    z-index: 10;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.418);
+    backdrop-filter: blur(15px);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 0 0 25px 0;
+    padding: 1rem;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.363);
+    border: 1px rgba(255, 255, 255, 0.301) solid;
+    text-shadow: 0 0 5px white;
+}
+
+#gameOver{
+
+    position: absolute;
+    inset: 0;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #0000009c;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: .4s;
+    pointer-events: none;
+}
+
+#gameOver.on{
+
+    opacity: 1;
+    pointer-events:auto;
+}
+#gameOver h2 {
+    font-size: 3rem;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.397);
+    letter-spacing: 1px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#gameOver p {
+    color: white;
+    text-align: center;
+    background-color: #00000050;
+    padding: 5px;
+    border-radius: 50px;
+}
+
+#jogarNovamente {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 0px black,
+    inset 2px 2px 3px rgba(255, 255, 255, 0.611),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.371);
+    background-color: rgb(0, 255, 64);
+    font-size: 1.3rem;
+    transition: .2s;
+}
+
+#jogarNovamente:active{
+
+    transform: translateY(3px);
+    box-shadow: 0 0px 0px black,
+    inset 2px 2px 3px rgba(255, 255, 255, 0.611),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.371);
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+   Ajusta apenas altura da .tela e escala em
+   telas muito pequenas. Posições horizontais
+   já estão em % (não precisam de media query).
+   ========================================== */
+
+@media (max-width: 768px) {
+    .tela {
+        height: clamp(24rem, 55vh, 45rem);
+    }
+
+    .personagem img {
+        transform: scaleX(-1) scale(0.85);
+    }
+
+    .tree img {
+        transform: scaleX(-1) scale(0.85);
+    }
+}
+
+@media (max-width: 480px) {
+    .tela {
+        height: clamp(20rem, 50vh, 32rem);
+    }
+
+    .personagem img {
+        transform: scaleX(-1) scale(0.65);
+    }
+
+    .tree img {
+        transform: scaleX(-1) scale(0.65);
+    }
+
+    h1 {
+        font-size: 1.1rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .personagem img {
+        transform: scaleX(-1) scale(0.5);
+    }
+
+    .tree img {
+        transform: scaleX(-1) scale(0.5);
+    }
 }
