@@ -49,12 +49,162 @@ font-family: "Lexend", sans-serif;
     overflow: hidden;
     position: relative;
 
-    background: linear-gradient(to top,#00d9ff,#00c3ff);
-
+ background: linear-gradient(
+        to top,
+        #e85d24 0%,
+        #f58b45 28%,
+        #f6b35f 48%,
+        #5f91c7 78%,
+        #315b91 100%
+    );
     background-repeat: no-repeat;
     display: flex;
-    
+    transition: 5s;
 }
+
+.noite-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: #10152f;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 3s ease;
+
+    z-index: 1;
+}
+
+.sol{
+    width: 355px;
+    height: 355px;
+    
+    background:linear-gradient(to top,rgb(255, 102, 0),rgb(255, 230, 0)) ;
+    
+box-shadow:
+    0 0 30px rgba(255, 196, 0, .8),
+    0 0 80px rgba(255, 150, 0, .45),
+    inset 1px 2px 3px rgba(255,255,255,.47),
+    inset -3px -2px 3px rgba(0,0,0,.27);
+
+    display: flex;
+    margin: auto;
+    transform: translateY(100px);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    bottom: 25%;
+        transition:5s;
+        z-index: 0;
+}
+
+.tela.noite .sol {
+    opacity: 0;
+}
+
+.lua {
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    right: 15%;
+    bottom: -20%;
+
+    border-radius: 50%;
+
+    background: #fff4c2;
+
+    box-shadow:
+        0 0 25px rgba(255, 244, 194, .8),
+        0 0 70px rgba(255, 244, 194, .35);
+
+    opacity: 0;
+
+    transition:
+        bottom 3s ease,
+        opacity 3s ease;
+
+    z-index: 2;
+    filter: brightness(2);
+
+}
+
+.tela.noite .lua {
+    bottom: 62%;
+    opacity: 1;
+}
+
+.estrelas {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: opacity 4s ease;
+
+    z-index: 2;
+}
+
+.tela.noite .estrelas {
+    opacity: 1;
+}
+
+.estrela {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 6px white;
+
+    animation: piscar 2s infinite alternate;
+}
+
+@keyframes piscar {
+    from {
+        opacity: .3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.montanhas {
+    transition: filter 3s ease;
+}
+
+.grass {
+    transition: filter 3s ease;
+}
+
+.floor {
+    transition: filter 3s ease;
+}
+
+.tela.noite .montanhas {
+    filter: brightness(.45);
+}
+
+.tela.noite .grass {
+    filter: brightness(.55);
+}
+
+.tela.noite .floor {
+    filter: brightness(.6);
+}
+
+
 
 .nuvem,
 .nuvem2,
@@ -219,11 +369,14 @@ font-family: "Lexend", sans-serif;
     right: 10px;
     bottom: 10px;
 }
+
+
+
 .floor {
-    background: linear-gradient(
+        background: linear-gradient(
         to bottom,
-        #58300f,
-        #3b1e09
+        #59391f,
+        #302014
     );
 
     height: 15%;
@@ -239,21 +392,18 @@ font-family: "Lexend", sans-serif;
     width: 100%;
     position: absolute;
 
-    background:
-        /* pequenos detalhes da grama */
+ background:
         repeating-linear-gradient(
             90deg,
-            rgba(12, 68, 22, 0.7) 0px,
-            rgba(12, 68, 22, 0.7) 3px,
+            rgba(20, 65, 25, .65) 0px,
+            rgba(20, 65, 25, .65) 3px,
             transparent 3px,
             transparent 12px
         ),
-
-        /* variação da superfície */
         linear-gradient(
             to bottom,
-            #328c27,
-            #26761d
+            #3f8a35,
+            #28652a
         );
 
     border-top: 3px solid #175b18;
@@ -290,7 +440,12 @@ font-family: "Lexend", sans-serif;
     width: 100%;
     height: 35%;
 
-    background: linear-gradient(to top,#484b49,#d7e9ff);
+background: linear-gradient(
+        to top,
+        #3f4a4c,
+        #7b7770
+    );
+    opacity: 1;
 
     clip-path: polygon(
         0% 100%,
@@ -307,7 +462,29 @@ font-family: "Lexend", sans-serif;
         100% 100%
     );
 
-    z-index: 1;
+    z-index: 3;
+}
+
+.montanhas::after {
+    content: "";
+    position: absolute;
+    inset: 20% 0 0;
+
+    background: #3f454279;
+
+    clip-path: polygon(
+        0% 100%,
+        0% 30%,
+        5% 85%,
+        40% 55%,
+        35% 2%,
+        60% 80%,
+        75% 50%,
+        90% 55%,
+        100% 45%,
+        100% 100%
+    );
+    
 }
 
 .grass {    
@@ -401,7 +578,7 @@ font-family: "Lexend", sans-serif;
     position: absolute;
     bottom: 15%;
     left: 42.9%;
-    z-index: 2;
+    z-index: 3;
     
 }
 
@@ -413,7 +590,7 @@ font-family: "Lexend", sans-serif;
     transform: scaleX(-1);
     transform-origin: bottom center;
     filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.2));
-    
+    transition: .6s ease;
 }
 
 #contadorBox{

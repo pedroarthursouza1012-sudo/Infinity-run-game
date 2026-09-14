@@ -59,7 +59,6 @@ async function carregarPokemons(){
             pokemon => pokemon.includes(pesquisa)
         );
 
-        console.log(resultados);
 
     });
 
