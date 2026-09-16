@@ -17,15 +17,17 @@ let intervalo = null;
 let playerY = 0;
 let velocidadeY = 0;
 
-const gravidade = 0.7;
-const forcaPulo = -14;
+const gravidade = 0.65;
+const forcaPulo = -15;
 
 let noChao = true;
 
-const tree = document.querySelector(".tree")
-const treeImg = tree.querySelector("img");
-let treeX = 600
-let velocidadeCenario = 5
+const obstaculos = document.getElementById("obstaculos");
+
+let arvores = [];
+
+let velocidadeCenario = 5;
+
 
 const nuvens = document.querySelectorAll(
     ".nuvem, .nuvem2, .nuvem3, .nuvem4, .nuvem5, .nuvem6"
@@ -42,6 +44,7 @@ const gameOverScreen = document.getElementById("gameOver");
 const pontuacaoFinal = document.getElementById("pontuacaoFinal");
 const jogarNovamente = document.getElementById("jogarNovamente");
 let jogoTerminou = false;
+
 
 
 for (let i = 0; i < 60; i++) {
@@ -105,117 +108,309 @@ nuvens.forEach((nuvem) => {
     nuvensX.push(parseFloat(getComputedStyle(nuvem).left));
 });
 
+function criarArvore(x) {
 
-function iniciarJogo(){
+    const tree = document.createElement("div");
 
-  if(jogoIniciado) return;
+    tree.classList.add("tree");
 
-  jogoIniciado = true
+    const img = document.createElement("img");
 
-  contador()
-  fisica()
-  moverCenario()
+    img.src = "../Infinity run/img/pokemon-fire-red-tree.png";
+
+    img.alt = "";
+
+    tree.appendChild(img);
+
+    obstaculos.appendChild(tree);
+
+    tree.style.left = `${x}px`;
+
+    arvores.push({
+        elemento: tree,
+        x: x
+    });
 }
+
+function gerarArvores() {
+
+    // Evita criar árvores demais
+    if (arvores.length > 0) {
+
+        const ultima =
+            arvores[arvores.length - 1];
+
+        if (
+            ultima.x >
+            tela.offsetWidth - 500
+        ) {
+            return;
+        }
+    }
+
+    // 25% de chance de duas árvores
+    const quantidade =
+        Math.random() < 0.25 ? 2 : 1;
+
+    // Distância aleatória
+    const distancia =
+        Math.random() * 250 + 500;
+
+    let x =
+        tela.offsetWidth + distancia;
+
+    for (let i = 0; i < quantidade; i++) {
+
+        criarArvore(x);
+
+        // Se forem duas, ficam próximas
+        if (quantidade === 2) {
+            x += 110;
+        }
+    }
+}
+
+
+
+function iniciarJogo() {
+
+    if (jogoIniciado) {
+        return;
+    }
+
+    jogoIniciado = true;
+
+    // Primeira árvore
+    criarArvore(
+        tela.offsetWidth + 500
+    );
+
+    contador();
+
+    fisica();
+
+    moverCenario();
+}
+
 
 function moverCenario(){
 
-  velocidadeCenario = Math.min(10,5 + tempo * 0.05 )
+    if (jogoTerminou) {
+        return;
+    }
 
-  //ARVORES
-  treeX-= velocidadeCenario
-  
+    velocidadeCenario =
+        Math.min(10, 5 + tempo * 0.05);
 
-  if(treeX <-100){
 
-    treeX = tela.offsetWidth + 100
-  }
+    // =========================
+    // ÁRVORES
+    // =========================
 
-  tree.style.left = `${treeX}px`
-  
-  if(verificarColisao()){
-    gameOver()
-    return
-  }
+    arvores.forEach((arvore) => {
 
-  //NUVENS
-  nuvens.forEach((nuvem, i) => {
+        arvore.x -= velocidadeCenario;
 
-        nuvensX[i] -= velocidadeCenario * 0.3;
-
-        if (nuvensX[i] < -150) {
-            nuvensX[i] = tela.offsetWidth + 100;
-        }
-
-        nuvem.style.left = `${nuvensX[i]}px`;
+        arvore.elemento.style.left =
+            `${arvore.x}px`;
 
     });
+
+
+    // Remove árvores que saíram da tela
+    arvores = arvores.filter((arvore) => {
+
+        if (arvore.x < -150) {
+
+            arvore.elemento.remove();
+
+            return false;
+        }
+
+        return true;
+    });
+
+
+    // Cria novas árvores
+    gerarArvores();
+
+
+    // =========================
+    // COLISÃO
+    // =========================
+
+    if (verificarColisao()) {
+
+        gameOver();
+
+        return;
+    }
+
+
+    // =========================
+    // NUVENS
+    // =========================
+
+    nuvens.forEach((nuvem, i) => {
+
+        nuvensX[i] -=
+            velocidadeCenario * 0.3;
+
+        if (nuvensX[i] < -150) {
+
+            nuvensX[i] =
+                tela.offsetWidth + 100;
+        }
+
+        nuvem.style.left =
+            `${nuvensX[i]}px`;
+
+    });
+
+
+    // =========================
+    // GRAMA
+    // =========================
 
     texturaX -= velocidadeCenario;
 
     grass.style.backgroundPosition =
         `${texturaX}px 0px`;
 
-    requestAnimationFrame(moverCenario)
+
+    requestAnimationFrame(moverCenario);
 }
+
 
 function fisica() {
 
-    if(jogoTerminou) return
+    if (jogoTerminou) {
+        return;
+    }
 
     velocidadeY += gravidade;
+
     playerY += velocidadeY;
 
+
+    // Chegou ao chão
     if (playerY >= 0) {
 
         playerY = 0;
-        velocidadeY = 0;
-        noChao = true;
 
+        velocidadeY = 0;
+
+        noChao = true;
     }
+
 
     player.parentElement.style.transform =
         `translateY(${playerY}px)`;
 
+
     requestAnimationFrame(fisica);
 }
 
-function pular(){
 
-  if(jogoTerminou){return}
-  if(!noChao){return}
+function pular() {
 
-  velocidadeY = forcaPulo;
-  noChao = false;
-  
+    if (jogoTerminou) {
+        return;
+    }
+
+    if (!noChao) {
+        return;
+    }
+
+    velocidadeY = forcaPulo;
+
+    noChao = false;
 }
-function verificarColisao(){
 
 
-    if(!noChao){return false}
+function verificarColisao() {
 
-    const playerRect = player.getBoundingClientRect();
-    const treeRect = treeImg.getBoundingClientRect();
+    const playerRect =
+        player.getBoundingClientRect();
 
+
+    // Hitbox do jogador
     const playerHitbox = {
-        left: playerRect.left + playerRect.width * 0.333,
-        right: playerRect.right - playerRect.width * 0.333,
-        top: playerRect.top + playerRect.height * 0.3,
-        bottom: playerRect.bottom
+
+        left:
+            playerRect.left +
+            playerRect.width * 0.35,
+
+        right:
+            playerRect.right -
+            playerRect.width * 0.35,
+
+        top:
+            playerRect.top +
+            playerRect.height * 0.25,
+
+        bottom:
+            playerRect.bottom
     };
 
-    const treeHitbox = {
-        left: treeRect.left + treeRect.width * 0.2,
-        right: treeRect.right - treeRect.width * 0.2,
-        top: treeRect.top + treeRect.height * 0.1,
-        bottom: treeRect.bottom
-    };
 
-    return(
-        playerHitbox.left < treeHitbox.right &&
-        playerHitbox.right > treeHitbox.left &&
-        playerHitbox.top < treeHitbox.bottom &&
-        playerHitbox.bottom > treeHitbox.top
-    )}
+    // Verifica todas as árvores
+    for (const arvore of arvores) {
+
+        const treeImg =
+            arvore.elemento.querySelector("img");
+
+        const treeRect =
+            treeImg.getBoundingClientRect();
+
+
+        // Hitbox da árvore
+        const treeHitbox = {
+
+            left:
+                treeRect.left +
+                treeRect.width * 0.25,
+
+            right:
+                treeRect.right -
+                treeRect.width * 0.25,
+
+            top:
+                treeRect.top +
+                treeRect.height * 0.25,
+
+            bottom:
+                treeRect.bottom
+        };
+
+
+        // Colisão
+        if (
+
+            playerHitbox.left <
+            treeHitbox.right &&
+
+            playerHitbox.right >
+            treeHitbox.left &&
+
+            playerHitbox.top <
+            treeHitbox.bottom &&
+
+            playerHitbox.bottom >
+            treeHitbox.top
+
+        ) {
+
+            return true;
+        }
+    }
+
+
+    return false;
+}
+
+
+
 function gameOver() {
 
     jogoTerminou = true;
@@ -225,8 +420,9 @@ function gameOver() {
     pontuacaoFinal.textContent =
         tempo.toString().padStart(7, "0");
 
-    gameOverScreen.classList.add("on")
+    gameOverScreen.classList.add("on");
 }
+
   
 
 if (!pokemonEscolhido) {
